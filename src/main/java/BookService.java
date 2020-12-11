@@ -15,10 +15,17 @@ public class BookService {
     static String API_VERSION = "v1";
     static String RESOURCE_PATH = "volumes";
 
+    private String NUM_RESULTS;
     private String API_KEY;
 
     public BookService(String API_KEY) {
         this.API_KEY = API_KEY;
+        this.NUM_RESULTS = "1";
+    }
+
+    public BookService(String API_KEY, Integer num_results) {
+        this.API_KEY = API_KEY;
+        this.NUM_RESULTS = String.valueOf(num_results);
     }
 
     public List<List<Book>> processQueries(List<List<String>> queries) throws IOException{
@@ -37,7 +44,7 @@ public class BookService {
                 .addPathSegment(API_NAME)
                 .addPathSegment(API_VERSION)
                 .addPathSegment(RESOURCE_PATH)
-                .addQueryParameter("maxResults", "1")
+                .addQueryParameter("maxResults", NUM_RESULTS)
                 .addQueryParameter("q", query)
                 .addQueryParameter("key", API_KEY)
                 .build();
