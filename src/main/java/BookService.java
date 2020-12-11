@@ -37,7 +37,7 @@ public class BookService {
                 .addPathSegment(API_NAME)
                 .addPathSegment(API_VERSION)
                 .addPathSegment(RESOURCE_PATH)
-                .addQueryParameter("maxResults", "3")
+                .addQueryParameter("maxResults", "1")
                 .addQueryParameter("q", query)
                 .addQueryParameter("key", API_KEY)
                 .build();
@@ -66,19 +66,9 @@ public class BookService {
 
     public static Book deserializeBookData(JsonElement je){
         Book book = new Book();
-
-
-
         JsonObject thingObj = je.getAsJsonObject();
-
-
-//        JsonObject volumeInfo = thingObj.get("volumeInfo").getAsJsonObject();
-//        JsonElement avgRatings = tryToGet(volumeInfo,"averageRating");
         JsonObject volumeInfo = thingObj.get("volumeInfo").getAsJsonObject();
         JsonElement avgRatings = tryToGet(volumeInfo,"averageRating");
-
-
-
         JsonArray authors = volumeInfo.getAsJsonArray("authors");
         JsonElement ratingsCount = tryToGet(volumeInfo,"ratingsCount");
         JsonElement imageLinks = tryToGet(volumeInfo, "imageLinks");

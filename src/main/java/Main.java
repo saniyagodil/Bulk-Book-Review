@@ -14,9 +14,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         // Add image to parent dir and update relative path
-        String filePath = "..\\image.jpg";
+        String filePath = "image.jpg";
+//        String filePath = "..\\image.jpg";
 
         List<List<String>> queries2 = DetectText.detectText(filePath);
+        System.out.println(queries2);
         BookService query_tool = new BookService(get_api_key());
 
 //        List<List<String>> queries = Arrays.asList(
