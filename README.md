@@ -8,8 +8,13 @@ These days, everyone wants to read reviews before commiting to something. But it
 4. Display results
 
 ### Currently:
-Consumes Google Books API, processing several queries, each representing a book as a list of Strings.
+1. Analyzes image and extracts lines of words using Google Cloud Vision API
+2. Consumes Google Books API, processing several queries, each representing a book as a list of Strings.
 Returns matching book results
 
+
 #### Setup: 
-Create API_KEY.txt file in parent dir, with Google API Key
+1. Register for [Google API Key](https://console.developers.google.com/)
+2. Enable Google Books API and Google Cloud Vision API use in developer console
+3. Create API_KEY.txt file in parent dir, with Google API Key
+4. Setup authorization for [Google Cloud Vision API](https://cloud.google.com/vision/docs/setup)

@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b488806f-680b-4a30-bf2b-f537566f20ae" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,23 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
+            <state relative-caret-position="408">
               <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ImageService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="46" column="63" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,11 +33,23 @@
       <file leaf-file-name="DetectText.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DetectText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="41" />
+            <state relative-caret-position="205">
+              <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="170">
+                <caret line="10" selection-start-line="10" selection-end-line="10" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -114,8 +107,9 @@
         <option value="$PROJECT_DIR$/src/main/java/test.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/BookService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DetectText.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DetectText.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -128,11 +122,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="7" />
-    <option name="y" value="63" />
-    <option name="width" value="2286" />
-    <option name="height" value="1315" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-11" />
+    <option name="width" value="1148" />
+    <option name="height" value="1444" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -272,15 +265,15 @@
       <workItem from="1607381864960" duration="35354000" />
       <workItem from="1607711681832" duration="1939000" />
       <workItem from="1607717175354" duration="716000" />
-      <workItem from="1607717973908" duration="523000" />
+      <workItem from="1607717973908" duration="1099000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38648000" />
+    <option name="totallyTimeSpent" value="39108000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="36" width="1306" height="751" extended-state="0" />
+    <frame x="-7" y="-7" width="1303" height="833" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -293,11 +286,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26397514" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30027547" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.125387" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -557,16 +550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DetectText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ImageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -579,11 +562,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
+        <state relative-caret-position="408">
           <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DetectText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="40" column="27" lean-forward="true" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="170">
+            <caret line="10" selection-start-line="10" selection-end-line="10" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
