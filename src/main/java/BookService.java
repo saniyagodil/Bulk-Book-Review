@@ -9,17 +9,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookService {
+    static String SCHEME = "https";
+    static String HOST = "www.googleapis.com";
+    static String PATH_SEGMENT_1 = "books";
+    static String PATH_SEGMENT_2 = "v1";
+    static String PATH_SEGMENT_3 = "volumes";
 
-    public static List<Book> getBooks(List<String> queryTerms) throws IOException {
-        String SCHEME = "https";
-        String HOST = "www.googleapis.com";
-        String PATH_SEGMENT_1 = "books";
-        String PATH_SEGMENT_2 = "v1";
-        String PATH_SEGMENT_3 = "volumes";
-        String API_KEY = "Your API Key Here";
-        String query = "Brandon Sanderson";
-        
-//        String query1 = String.join(" ", queryTerms);
+    private String API_KEY;
+
+    public BookService(String API_KEY) {
+        this.API_KEY = API_KEY;
+    }
+
+    public List<List<Book>> processQueries(List<List<String>> queries) throws IOException{
+        List<List<Book>> results = new ArrayList<List<Book>>();
+        for(List<String> query : queries){
+            results.add(getBooks(query));
+        }
+        return results;
+    }
+
+    public List<Book> getBooks(List<String> queryTerms) throws IOException {
+        String query = String.join(" ", queryTerms);
         HttpUrl URL = new HttpUrl.Builder()
                 .scheme(SCHEME)
                 .host(HOST)
@@ -41,74 +52,63 @@ public class BookService {
         String str = rbody.string();
 
         Gson g = new Gson();
-        JsonObject job = g.fromJson(str, JsonObject.class);
-        Integer resultsCount = job.get("totalItems").getAsInt();
-        JsonArray jarray = job.getAsJsonArray("items");
+        JsonObject jo = g.fromJson(str, JsonObject.class);
+        Integer resultsCount = jo.get("totalItems").getAsInt();
+        JsonArray jarray = jo.getAsJsonArray("items");
         List<Book> books = new ArrayList<Book>();
 
-        for(JsonElement thing : jarray){
-            Book book = new Book();
-            JsonObject thingObj = thing.getAsJsonObject();
-            JsonObject volumeInfo = thingObj.get("volumeInfo").getAsJsonObject();
-            JsonElement avgRatings = tryToGet(volumeInfo,"averageRating");
-            JsonArray authors = volumeInfo.getAsJsonArray("authors");
-            JsonElement ratingsCount = tryToGet(volumeInfo,"ratingsCount");
-            JsonElement imageLinks = tryToGet(volumeInfo, "imageLinks");
-            JsonElement description = tryToGet(volumeInfo, "description");
-            JsonElement title = tryToGet(volumeInfo, "title");
-            JsonElement id = tryToGet(thingObj, "id");
-            List<String> authorStrings = new ArrayList<String>();
-            for(JsonElement ele : authors){
-                if(ele != null){
-                    authorStrings.add(ele.toString());
-                }
-            }
-            book.setAuthors(authorStrings);
-            if(imageLinks != null){
-                JsonElement thumbnail = tryToGet(imageLinks.getAsJsonObject(), "thumbnail");
-                if(thumbnail != null){
-                    book.setImageLinks(thumbnail.getAsString());
-                }
-            }
-            if(description != null){
-                book.setDescription(description.getAsString());
-            }
-            if(avgRatings != null){
-                book.setAverageRatings(avgRatings.getAsLong());
-            }
-            if(ratingsCount != null){
-                book.setRatingsCount(ratingsCount.getAsInt());
-            }
-            if(title != null){
-                book.setTitle(title.getAsString());
-            }
-            if(id != null){
-                book.setId(id.getAsString());
-            }
-            books.add(book);
+        for(JsonElement ele : jarray){
+            books.add(deserializeBookData(ele));
         }
         return books;
     }
+
+    public static Book deserializeBookData(JsonElement je){
+        Book book = new Book();
+        JsonObject thingObj = je.getAsJsonObject();
+        JsonObject volumeInfo = thingObj.get("volumeInfo").getAsJsonObject();
+        JsonElement avgRatings = tryToGet(volumeInfo,"averageRating");
+        JsonArray authors = volumeInfo.getAsJsonArray("authors");
+        JsonElement ratingsCount = tryToGet(volumeInfo,"ratingsCount");
+        JsonElement imageLinks = tryToGet(volumeInfo, "imageLinks");
+        JsonElement description = tryToGet(volumeInfo, "description");
+        JsonElement title = tryToGet(volumeInfo, "title");
+        JsonElement id = tryToGet(thingObj, "id");
+        List<String> authorStrings = new ArrayList<String>();
+        for(JsonElement ele : authors){
+            if(ele != null){
+                authorStrings.add(ele.toString());
+            }
+        }
+        book.setAuthors(authorStrings);
+        if(imageLinks != null){
+            JsonElement thumbnail = tryToGet(imageLinks.getAsJsonObject(), "thumbnail");
+            if(thumbnail != null){
+                book.setImageLinks(thumbnail.getAsString());
+            }
+        }
+        if(description != null){
+            book.setDescription(description.getAsString());
+        }
+        if(avgRatings != null){
+            book.setAverageRatings(avgRatings.getAsLong());
+        }
+        if(ratingsCount != null){
+            book.setRatingsCount(ratingsCount.getAsInt());
+        }
+        if(title != null){
+            book.setTitle(title.getAsString());
+        }
+        if(id != null){
+            book.setId(id.getAsString());
+        }
+        return book;
+    }
+
     public static JsonElement tryToGet(JsonObject jo, String key) {
         if(jo.has(key))
             return jo.get(key);
         return null;
     }
 
-//    public static Object formatElement(JsonElement je, String s){
-//        if(je == null){
-//            return null;
-//        } else if(s.equals("int")){
-//            return je.getAsInt();
-//        } else if(s.equals("long")){
-//            return je.getAsLong();
-//        } else if(s.equals("string")){
-//            return je.getAsString();
-//        }
-//        return "Error";
-//    }
-
-//    public <T> formatElement3(JsonElement je, T type) {
-//
-//    }
 }
