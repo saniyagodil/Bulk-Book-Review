@@ -75,12 +75,15 @@ public class BookService {
         JsonElement title = tryToGet(volumeInfo, "title");
         JsonElement id = tryToGet(thingObj, "id");
         List<String> authorStrings = new ArrayList<String>();
-        for(JsonElement ele : authors){
-            if(ele != null){
-                authorStrings.add(ele.toString());
+        if(authors != null){
+            for(JsonElement ele : authors){
+                if(ele != null){
+                    authorStrings.add(ele.toString());
+                }
             }
+            book.setAuthors(authorStrings);
         }
-        book.setAuthors(authorStrings);
+
         if(imageLinks != null){
             JsonElement thumbnail = tryToGet(imageLinks.getAsJsonObject(), "thumbnail");
             if(thumbnail != null){

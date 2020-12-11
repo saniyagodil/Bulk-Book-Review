@@ -16,8 +16,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BookService query_tool = new BookService(get_api_key());
         List<List<String>> queries = Arrays.asList(
-                Arrays.asList("Brandon", "Sanderson"),
-                Arrays.asList("Terry", "Pratchett")
+                Arrays.asList("Far", "Call", "Gordon", "Dickson"),
+                Arrays.asList("Moon", "Mutiny", "Lester")
         );
         List<List<Book>> results = query_tool.processQueries(queries);
         System.out.print(results);
