@@ -2,6 +2,18 @@ import java.util.*;
 
 public class QueryEvaluator {
 
+    /* Currently: Throwing out all words with numbers or with specific words
+    *
+    *  This will throw out some titles/parts of titles
+    *
+    *  words ("bestselling", "author", "fiction", "fantasy", "edited", "book", "books", "u.s.", "canada", "library")
+    *  publishers ("bantam", "harper", "tor")
+    *
+    *  Needs refining
+    * */
+
+
+
     public static List<List<String>> queryEvaluator(List<List<String>> queries){
         List<List<String>> filteredQueries = new ArrayList<List<String>>();
 
@@ -14,11 +26,8 @@ public class QueryEvaluator {
     }
 
     public static boolean include(List<String> query){
-        if(isNewYorkTimes(query)){
-            return false;
-        }
         for(String str : query){
-            if(containsNumbers(str) || containsBannedWord(str)){
+            if(containsNumbers(str) || isBannedWord(str) || isPublisher(str)){
                 return false;
             }
         }
@@ -29,14 +38,13 @@ public class QueryEvaluator {
         return !word.equals(word.replaceAll("[*0-9]", ""));
     }
 
-    public static boolean containsBannedWord(String word){
-        Set<String> bannedWords = new HashSet<String>(Arrays.asList("bestselling", "author", "fiction", "fantasy", "by", "edited", "book", "books", "bantam", "harper", "u.s.", "canada", "library"));
+    public static boolean isBannedWord(String word){
+        Set<String> bannedWords = new HashSet<String>(Arrays.asList("bestselling", "author", "fiction", "fantasy", "edited", "book", "books", "u.s.", "canada", "library"));
         return bannedWords.contains(word.toLowerCase());
     }
 
-    public static boolean isNewYorkTimes(List<String> query){
-        return query.equals(Arrays.asList("NEW", "YORK", "TIMES", "BESTSELLING", "AUTHOR"));
+    public static boolean isPublisher(String word){
+        Set<String> publishers = new HashSet<String>(Arrays.asList("bantam", "harper", "tor"));
+        return publishers.contains(word.toLowerCase());
     }
-
-
 }
