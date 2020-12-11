@@ -4,15 +4,17 @@ import com.google.protobuf.ByteString;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DetectText {
-    public static void detectText() throws IOException {
-        String filePath = "..\\test.jpg";
-        detectText(filePath);
+    public static List<List<String>> detectText() throws IOException {
+        String filePath = "..\\test2.jpg";
+        return detectText(filePath);
     }
 
-    public static void detectText(String filePath) throws IOException {
+    public static List<List<String>> detectText(String filePath) throws IOException {
+        List<List<String>> results = new ArrayList<>(new ArrayList<>());
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = ByteString.readFrom(new FileInputStream(filePath));
@@ -33,13 +35,16 @@ public class DetectText {
             for (AnnotateImageResponse res : responses) {
                 if (res.hasError()) {
                     System.out.format("Error: %s%n", res.getError().getMessage());
-                    return;
+                    return results;
                 }
-                System.out.format("%s%n", res.getTextAnnotationsList().get(0).getDescription());
-
+                String unprocessedResults = res.getTextAnnotationsList().get(0).getDescription();
+                String[] arrResults = unprocessedResults.split("\n");
+                for(String a : arrResults){
+                    List<String> thisLineWords = Arrays.asList(a.split(" "));
+                    results.add(thisLineWords);
+                }
             }
-            client.close();
         }
-
+        return results;
     }
 }

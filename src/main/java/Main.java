@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,13 +13,16 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        DetectText.detectText();
+        List<List<String>> queries2 = DetectText.detectText();
+
         BookService query_tool = new BookService(get_api_key());
-        List<List<String>> queries = Arrays.asList(
-                Arrays.asList("Far", "Call", "Gordon", "Dickson"),
-                Arrays.asList("Moon", "Mutiny", "Lester")
-        );
-        List<List<Book>> results = query_tool.processQueries(queries);
+//        List<List<String>> queries = Arrays.asList(
+//                Arrays.asList("Wings", "Of", "Omen"),
+//                Arrays.asList("The", "Way", "Of", "Kings")
+//        );
+//        List<List<Book>> results = query_tool.processQueries(queries);
+
+        List<List<Book>> results = query_tool.processQueries(queries2);
         System.out.print(results);
     }
 
