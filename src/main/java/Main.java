@@ -17,8 +17,10 @@ public class Main {
         String filePath = "image.jpg";
 
         List<List<String>> queries = DetectText.detectText(filePath);
+        List<List<String>> filteredQueries = QueryEvaluator.queryEvaluator(queries);
+        System.out.println(filteredQueries);
         BookService query_tool = new BookService(get_api_key());
-        List<List<Book>> results = query_tool.processQueries(queries);
+        List<List<Book>> results = query_tool.processQueries(filteredQueries);
         System.out.print(results);
     }
 
