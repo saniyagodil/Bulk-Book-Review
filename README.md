@@ -19,7 +19,6 @@ Returns matching book results
 1. Register for [Google API Key](https://console.developers.google.com/)
 2. Enable Google Books API and Google Cloud Vision API use in developer console
 3. Setup authorization for [Google Cloud Vision API](https://cloud.google.com/vision/docs/setup)
-4. In Parent Directory:
-    - Create API_KEY.txt file with Google API Key
-    - Add image file and name it image.jpeg (or update filePath in Main.java with image name)
+4. In Parent Directory, create API_KEY.txt file with Google API Key
+5. Optional: Add image file to project directory and name it image.jpeg (or update filePath in Main.java with image name)
 6. (Currently: Build/Run Main.java)
