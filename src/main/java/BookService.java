@@ -11,9 +11,9 @@ import java.util.List;
 public class BookService {
     static String SCHEME = "https";
     static String HOST = "www.googleapis.com";
-    static String PATH_SEGMENT_1 = "books";
-    static String PATH_SEGMENT_2 = "v1";
-    static String PATH_SEGMENT_3 = "volumes";
+    static String API_NAME = "books";
+    static String API_VERSION = "v1";
+    static String RESOURCE_PATH = "volumes";
 
     private String API_KEY;
 
@@ -34,9 +34,10 @@ public class BookService {
         HttpUrl URL = new HttpUrl.Builder()
                 .scheme(SCHEME)
                 .host(HOST)
-                .addPathSegment(PATH_SEGMENT_1)
-                .addPathSegment(PATH_SEGMENT_2)
-                .addPathSegment(PATH_SEGMENT_3)
+                .addPathSegment(API_NAME)
+                .addPathSegment(API_VERSION)
+                .addPathSegment(RESOURCE_PATH)
+                .addQueryParameter("maxResults", "3")
                 .addQueryParameter("q", query)
                 .addQueryParameter("key", API_KEY)
                 .build();
@@ -65,9 +66,19 @@ public class BookService {
 
     public static Book deserializeBookData(JsonElement je){
         Book book = new Book();
+
+
+
         JsonObject thingObj = je.getAsJsonObject();
+
+
+//        JsonObject volumeInfo = thingObj.get("volumeInfo").getAsJsonObject();
+//        JsonElement avgRatings = tryToGet(volumeInfo,"averageRating");
         JsonObject volumeInfo = thingObj.get("volumeInfo").getAsJsonObject();
         JsonElement avgRatings = tryToGet(volumeInfo,"averageRating");
+
+
+
         JsonArray authors = volumeInfo.getAsJsonArray("authors");
         JsonElement ratingsCount = tryToGet(volumeInfo,"ratingsCount");
         JsonElement imageLinks = tryToGet(volumeInfo, "imageLinks");

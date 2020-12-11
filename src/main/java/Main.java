@@ -14,6 +14,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
+        DetectText.detectText();
         BookService query_tool = new BookService(get_api_key());
         List<List<String>> queries = Arrays.asList(
                 Arrays.asList("Far", "Call", "Gordon", "Dickson"),
