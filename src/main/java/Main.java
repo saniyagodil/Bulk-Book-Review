@@ -13,9 +13,12 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        List<List<String>> queries2 = DetectText.detectText();
+        // Add image to parent dir and update relative path
+        String filePath = "..\\image.jpg";
 
+        List<List<String>> queries2 = DetectText.detectText(filePath);
         BookService query_tool = new BookService(get_api_key());
+
 //        List<List<String>> queries = Arrays.asList(
 //                Arrays.asList("Wings", "Of", "Omen"),
 //                Arrays.asList("The", "Way", "Of", "Kings")

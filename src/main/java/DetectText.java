@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DetectText {
     public static List<List<String>> detectText() throws IOException {
-        String filePath = "..\\test2.jpg";
+        String filePath = "..\\image.jpg";
         return detectText(filePath);
     }
 
