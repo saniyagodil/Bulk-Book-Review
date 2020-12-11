@@ -5,7 +5,7 @@ These days, everyone wants to read reviews before commiting to something. But it
 ### Eventually: 
 1. User takes a photo of a bookshelf
 2. App identifies book text
-3. App filters out irrelevant text/numbers: "Edited", "Library", "By" and potentially scores queries, filtering out ones that only include words like: 'The', 'So', 'A')
+3. App filters out irrelevant text/numbers: "Edited", "Library", "Author" and potentially scores queries, filtering out ones that only include words like: 'The', 'So', 'A')
 4. App queries for books
 5. Display results
 
@@ -13,6 +13,8 @@ These days, everyone wants to read reviews before commiting to something. But it
 1. Analyzes image and extracts lines of words using Google Cloud Vision API
 2. Consumes Google Books API, processing image data, each (ideally) representing a book as a list of Strings.
 Returns matching book results
+3. Filters out prices and other "noise"
+4. Prints results as book objects
 
 
 #### Setup: 

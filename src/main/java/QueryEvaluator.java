@@ -30,7 +30,7 @@ public class QueryEvaluator {
     }
 
     public static boolean containsBannedWord(String word){
-        Set<String> bannedWords = new HashSet<String>(Arrays.asList("bestselling", "author", "fiction", "fantasy", "by", "edited", "book", "books", "bantam", "harper", "u.s.", "canada"));
+        Set<String> bannedWords = new HashSet<String>(Arrays.asList("bestselling", "author", "fiction", "fantasy", "by", "edited", "book", "books", "bantam", "harper", "u.s.", "canada", "library"));
         return bannedWords.contains(word.toLowerCase());
     }
 
