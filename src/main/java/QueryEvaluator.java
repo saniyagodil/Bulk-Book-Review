@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class QueryEvaluator {
 
@@ -12,26 +13,12 @@ public class QueryEvaluator {
     *  Needs refining
     * */
 
-
-
     public static List<List<String>> queryEvaluator(List<List<String>> queries){
-        List<List<String>> filteredQueries = new ArrayList<List<String>>();
-
-        for(List<String> query : queries){
-            if(include(query)){
-                filteredQueries.add(query);
-            }
-        }
-        return filteredQueries;
+        return queries.stream().filter(QueryEvaluator::include).collect(Collectors.toList());
     }
 
     public static boolean include(List<String> query){
-        for(String str : query){
-            if(containsNumbers(str) || isBannedWord(str) || isPublisher(str)){
-                return false;
-            }
-        }
-        return true;
+        return !query.stream().anyMatch(str -> containsNumbers(str) || isBannedWord(str) || isPublisher(str));
     }
 
     public static boolean containsNumbers(String word){
