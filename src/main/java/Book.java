@@ -16,6 +16,10 @@ public class Book {
 
     private String imageLinks;
 
+    private String publisher;
+
+    private String publishedDate;
+
 
     public String getId() {
         return id;
@@ -73,6 +77,22 @@ public class Book {
         this.imageLinks = imageLinks;
     }
 
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getPublishedDate() {
+        return publishedDate;
+    }
+
+    public void setPublishedDate(String publishedDate) {
+        this.publishedDate = publishedDate;
+    }
+
     @Override
     public String toString() {
         return "Book id= " + id + '\n' +
@@ -81,6 +101,8 @@ public class Book {
                 "description=" + description + '\n' +
                 "averageRatings=" + averageRatings + '\n' +
                 "ratingsCount=" + ratingsCount + '\n' +
+                "publisher=" + publisher + '\n' +
+                "publishedDate=" + publishedDate + '\n' +
                 "imageLinks=" + imageLinks + '\n' + '\n';
     }
 

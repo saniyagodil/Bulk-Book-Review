@@ -14,11 +14,19 @@ public class QueryEvaluator {
     * */
 
     public static List<List<String>> queryEvaluator(List<List<String>> queries){
-        return queries.stream().filter(QueryEvaluator::include).collect(Collectors.toList());
+        // Commented out code throws out query if it contains any offending string
+        //return queries.stream().filter(QueryEvaluator::include).collect(Collectors.toList());
+        return queries.stream().map(query -> removeOffendingString(query)).filter(query -> query.size() > 0).collect(Collectors.toList());
     }
 
     public static boolean include(List<String> query){
         return !query.stream().anyMatch(str -> containsNumbers(str) || isBannedWord(str) || isPublisher(str));
+    }
+
+    public static List<String> removeOffendingString(List<String> query){
+        return query.stream()
+                .filter(str -> !containsNumbers(str) && !isBannedWord(str) && !isPublisher(str))
+                .collect(Collectors.toList());
     }
 
     public static boolean containsNumbers(String word){

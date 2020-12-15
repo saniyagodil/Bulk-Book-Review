@@ -81,6 +81,8 @@ public class BookService {
         JsonElement description = tryToGet(volumeInfo, "description");
         JsonElement title = tryToGet(volumeInfo, "title");
         JsonElement id = tryToGet(thingObj, "id");
+        JsonElement publisher = tryToGet(volumeInfo, "publisher");
+        JsonElement publishedDate = tryToGet(volumeInfo, "publishedDate");
         List<String> authorStrings = new ArrayList<String>();
         if(authors != null){
             for(JsonElement ele : authors){
@@ -111,6 +113,12 @@ public class BookService {
         }
         if(id != null){
             book.setId(id.getAsString());
+        }
+        if(publisher != null){
+            book.setPublisher(publisher.getAsString());
+        }
+        if(publishedDate != null){
+            book.setPublishedDate(publishedDate.getAsString());
         }
         return book;
     }
