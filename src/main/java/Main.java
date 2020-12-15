@@ -17,6 +17,7 @@ public class Main {
         String filePath = "image.jpg";
 
         List<List<String>> queries = DetectText.detectText(filePath);
+        System.out.println(queries);
         List<List<String>> filteredQueries = QueryEvaluator.queryEvaluator(queries);
         System.out.println(filteredQueries);
         BookService query_tool = new BookService(get_api_key());
